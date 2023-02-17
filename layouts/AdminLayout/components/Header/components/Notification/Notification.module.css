@@ -1,0 +1,11 @@
+.btn {
+  @apply relative;
+}
+
+.icon {
+  @apply h-[24px] w-[24px] text-[#5ABB5E];
+}
+
+.counter {
+  @apply absolute -top-[7px] -right-[7px] flex h-[20px] w-[20px] items-center justify-center rounded-full border-[2px] border-white bg-[#5ABB5E] text-[12px] font-medium leading-[15px] text-white shadow-[0px_4px_10px_rgba(0,0,0,0.1)];
+}

@@ -1,0 +1,43 @@
+.item:not(:last-child) {
+  @apply mb-[2px];
+}
+
+.link {
+  @apply grid grid-cols-[24px_1fr] items-center gap-x-[15px] bg-white px-[20px] py-[15px];
+}
+
+.item:first-child > .link {
+  @apply rounded-t-[10px];
+}
+
+.item:last-child > .link {
+  @apply rounded-b-[10px];
+}
+
+.label {
+  @apply max-w-[133px] text-[14px] font-medium leading-[17px];
+}
+
+.link > svg {
+  @apply h-[24px] w-[24px] text-[#52A5FC];
+}
+
+.link:hover {
+  @apply bg-gray-200 transition-all duration-300 ease-in-out;
+}
+
+.link:hover > svg {
+  @apply text-[#0a091d] transition-all duration-300 ease-in-out;
+}
+
+.link_active {
+  @apply bg-[#52A5FC] text-white;
+}
+
+.link_active svg {
+  @apply text-white;
+}
+
+.link_active:hover {
+  @apply text-[#0a091d];
+}

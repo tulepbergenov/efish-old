@@ -1,0 +1,23 @@
+.nav {
+  @apply flex items-center;
+}
+
+.list {
+  @apply mr-[50px] flex items-center text-[16px] font-medium leading-[20px] text-[#0A091D];
+}
+
+.item {
+  @apply mr-[50px] last:mr-0;
+}
+
+.item_active {
+  @apply mr-[20px];
+}
+
+.link {
+  @apply inline-block;
+}
+
+.link_active {
+  @apply rounded-[44px] bg-[#52A5FC] py-[16px] px-[30px] text-white;
+}

@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hook-form", "prettier"],
+  "rules": {
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+    "react/react-in-jsx-scope": "off",
+    "no-duplicate-imports": "error",
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-empty-function": ["off"],
+    "react/display-name": ["off"],
+    "@typescript-eslint/no-non-null-assertion": ["off"],
+    "react-hooks/exhaustive-deps": ["off"],
+    "@typescript-eslint/no-empty-interface": ["off"],
+    "no-extra-boolean-cast": ["off"]
+  }
+}

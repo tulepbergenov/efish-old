@@ -1,0 +1,27 @@
+.btn {
+  @apply grid min-h-[60px] min-w-[200px] grid-cols-[1fr_12px] gap-x-[30px] rounded-[110px] bg-[#52A5FC] px-[30px] py-[14px] text-start text-white transition-colors duration-300 ease-in-out hover:bg-[#1A8BFF];
+}
+
+.label {
+  @apply text-[14px] font-semibold leading-[17px];
+}
+
+.sublabel {
+  @apply text-[12px] leading-[15px] text-[#A1CAF3];
+}
+
+.icon {
+  @apply row-span-2 w-[12px] self-center;
+}
+
+.wrapper {
+  @apply relative;
+}
+
+.item {
+  @apply mb-[13px] last:mb-0;
+}
+
+.list {
+  @apply absolute bottom-0 left-0 z-20 w-[247px] -translate-x-[20px] translate-y-[110px] rounded-[10px] bg-white px-[25px] py-[22px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)];
+}

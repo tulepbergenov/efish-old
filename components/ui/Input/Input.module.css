@@ -1,0 +1,23 @@
+.wrapper {
+  @apply relative;
+}
+
+.wrapper svg {
+  @apply h-[24px] w-[24px] text-[#52A5FC];
+}
+
+.inp {
+  @apply w-full rounded-[5px] border border-[#D3E7FB] py-[13px] px-[20px] font-montserrat text-[14px] font-normal leading-[19px] text-[#0A091D] placeholder:text-[#0A091D];
+}
+
+.inp_icon {
+  @apply pr-[64px];
+}
+
+.inp_password {
+  @apply pr-[64px];
+}
+
+.btn {
+  @apply absolute top-2/4 right-[20px] inline-block -translate-y-2/4;
+}

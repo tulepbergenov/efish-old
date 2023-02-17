@@ -1,0 +1,19 @@
+.title {
+  @apply mb-[25px];
+}
+
+.btns {
+  @apply mb-[25px] flex items-center;
+}
+
+.btn {
+  @apply mr-[10px] last:mr-0;
+}
+
+.tabs {
+  @apply mb-[30px];
+}
+
+.linkRecovery {
+  @apply font-medium text-[#52A5FC];
+}

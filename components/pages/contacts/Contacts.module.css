@@ -1,0 +1,31 @@
+.wrapper {
+  @apply mb-[100px];
+}
+
+.title {
+  @apply mb-[40px];
+}
+
+.list {
+  @apply flex justify-between px-[64px] pb-[47px] pt-[65px];
+}
+
+.item {
+  @apply grid grid-cols-[53px_1fr] gap-[5px_27px] self-start;
+}
+
+.icon {
+  @apply row-span-2 h-[53px] w-[53px] text-[#52A5FC];
+}
+
+.label {
+  @apply text-[18px] font-semibold uppercase leading-[22px];
+}
+
+.list a {
+  @apply transition-colors duration-300 ease-in-out hover:text-[#52A5FC];
+}
+
+.numbers > li:not(:last-child) {
+  @apply mb-[5px];
+}

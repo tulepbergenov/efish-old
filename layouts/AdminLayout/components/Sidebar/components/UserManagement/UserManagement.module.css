@@ -1,0 +1,35 @@
+.btn {
+  @apply flex text-white;
+}
+
+.link {
+  @apply grid grid-cols-[24px_1fr] items-center gap-x-[15px] py-[15px] pr-[10px] pl-[20px]  transition-colors duration-300 ease-in-out hover:bg-[#1A8BFF] hover:text-white;
+
+  border-radius: 10px 0 0 0;
+}
+
+.link:hover > svg {
+  @apply text-white transition-colors duration-300 ease-in-out;
+}
+
+.linkIcon {
+  @apply h-[24px] w-[24px];
+}
+
+.label {
+  @apply text-[14px] font-medium leading-[17px];
+}
+
+.arrowBtn {
+  @apply flex w-full items-center justify-center transition-colors duration-200 ease-in-out hover:bg-[#1A8BFF] hover:text-white;
+
+  border-radius: 0 10px 0 0;
+}
+
+.menuItem {
+  @apply grid grid-cols-[24px_1fr] items-center gap-x-[15px] bg-white py-[15px] px-[20px]  transition-colors duration-300 ease-in-out hover:bg-gray-200 hover:text-[#0A091D];
+}
+
+.menuLabel {
+  @apply inline-block max-w-[144px] text-[14px] font-medium leading-[17px];
+}

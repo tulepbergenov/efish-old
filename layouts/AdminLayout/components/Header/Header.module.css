@@ -1,0 +1,7 @@
+.header {
+  @apply flex items-center justify-between rounded-[10px] bg-white px-[30px] py-[21px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)];
+}
+
+.nav {
+  @apply flex items-center gap-x-[55px];
+}

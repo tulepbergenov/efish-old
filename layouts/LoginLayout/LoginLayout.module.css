@@ -1,0 +1,27 @@
+.main {
+  @apply relative flex h-screen w-screen justify-center overflow-x-hidden overflow-y-scroll bg-[#F4FAFF] before:absolute before:-top-[390px] before:-left-[423px] before:h-[664px] before:w-[664px] before:rounded-full before:bg-[#52A5FC] before:blur-[400px] before:content-[''] after:absolute after:-bottom-[423px] after:-right-[300px] after:h-[664px] after:w-[664px] after:rounded-full after:bg-[#52A5FC] after:blur-[400px] after:content-[''];
+}
+
+.main::-webkit-scrollbar {
+  @apply w-[7.5px];
+}
+
+.main::-webkit-scrollbar-thumb {
+  @apply rounded bg-[#52A5FC];
+}
+
+.main::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.content {
+  @apply z-10 flex flex-col items-center pt-[128px] pb-[239px];
+}
+
+.langs {
+  @apply mb-[92px];
+}
+
+.logo {
+  @apply mb-[50px];
+}

@@ -1,0 +1,11 @@
+.input {
+  @apply inline-block w-full rounded-[5px] bg-white py-[13px] text-[16px] font-normal leading-[20px] text-[#0A091D] shadow-[0px_8px_50px_rgba(210,232,254,0.4)] placeholder:text-[#0A091D];
+}
+
+.input_border {
+  @apply border border-[#D3E7FB];
+}
+
+.input_px {
+  @apply px-[20px];
+}

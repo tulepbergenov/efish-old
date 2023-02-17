@@ -1,0 +1,35 @@
+.btn {
+  @apply inline-block rounded-[44px] px-[30px] pt-[16px] pb-[14px] font-montserrat transition-colors duration-300 ease-in-out;
+}
+
+.btn_icon {
+  @apply flex w-fit items-center gap-x-[10px];
+}
+
+.btn_icon > svg {
+  @apply h-[15px] w-[15px];
+}
+
+.btn_textSm {
+  @apply text-[14px] font-normal leading-[19px];
+}
+
+.btn_textMd {
+  @apply text-[16px] font-medium leading-[21px];
+}
+
+.btn_bgBlue {
+  @apply bg-[#52A5FC] text-white;
+}
+
+.btn_bgWhite {
+  @apply bg-white text-[#0A091D];
+}
+
+.btn_bgGreen {
+  @apply bg-[#5ABB5E] text-white;
+}
+
+.btn_bgBlack {
+  @apply bg-[#0A091D] text-white;
+}

@@ -1,0 +1,39 @@
+.form {
+  @apply mb-[30px] flex flex-col items-center;
+}
+
+.inps {
+  @apply mb-[30px] flex w-full flex-col gap-y-[10px];
+}
+
+.inpItem {
+  @apply relative w-full;
+}
+
+.inp {
+  @apply w-full pl-[64px] pr-[60px];
+}
+
+.icon {
+  @apply absolute top-2/4 left-[20px] -translate-y-2/4 text-[#52A5FC];
+}
+
+.iconShow {
+  @apply absolute top-2/4 right-[20px] -translate-y-2/4 text-[#52A5FC];
+}
+
+.iconShow > svg {
+  @apply h-[24px] w-[24px];
+}
+
+.inpItem_error > input {
+  @apply border border-[#F19797];
+}
+
+.inpItem_error svg {
+  @apply text-[#F19797];
+}
+
+.error {
+  @apply mb-[5px] w-full rounded-[5px] bg-[#F19797] py-[19px] text-center text-[14px] leading-[17px] text-white last:mb-0;
+}

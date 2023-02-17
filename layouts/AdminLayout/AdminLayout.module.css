@@ -1,0 +1,37 @@
+.wrapper {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-areas: ". header header ." ". sidebar main .";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 252px minmax(320px, 1408px) auto;
+
+  padding-top: 43px;
+  padding-bottom: 43px;
+
+  overflow: hidden;
+
+  column-gap: 30px;
+  row-gap: 35px;
+
+  background-color: #f4faff;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  z-index: 1;
+
+  grid-area: sidebar;
+}
+
+.main {
+  z-index: 1;
+
+  grid-area: main;
+}
+
+.content {
+  @apply rounded-[10px] bg-white px-[45px] pt-[45px] pb-[58px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)];
+}

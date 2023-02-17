@@ -1,0 +1,31 @@
+.select {
+  @apply relative w-[70px] text-[17px] font-medium leading-[21px];
+}
+
+.selectBtn {
+  @apply flex items-center text-[#52A5FC];
+}
+
+.arrow {
+  @apply ml-[16px] transition-transform duration-300 ease-in-out;
+}
+
+.arrow_active {
+  @apply rotate-180;
+}
+
+.list {
+  @apply absolute;
+}
+
+.btns {
+  @apply flex items-center;
+}
+
+.btn {
+  @apply mr-[20px] text-[16px] font-bold leading-[20px] text-[#C1DFFF] last:mr-0;
+}
+
+.btn_active {
+  @apply text-[#52A5FC];
+}

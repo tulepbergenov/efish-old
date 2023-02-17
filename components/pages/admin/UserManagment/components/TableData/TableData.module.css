@@ -1,0 +1,47 @@
+.tr {
+  @apply even:bg-[#FBFBFB];
+}
+
+.tr > .td:first-child {
+  @apply rounded-[10px_0_0_10px];
+}
+
+.tr > .td:last-child {
+  @apply rounded-[0_10px_10px_0];
+}
+
+.td {
+  @apply whitespace-nowrap px-[20px] py-[20px] text-[14px] leading-[17px] text-[#0A091D];
+}
+
+.name {
+  @apply flex items-center gap-x-[5px];
+}
+
+.itemCenter {
+  @apply flex items-center;
+}
+
+.itemJCenter {
+  @apply flex justify-center;
+}
+
+.btnIcon {
+  @apply h-[18px] w-[18px];
+}
+
+.btnIcon_info {
+  @apply text-[#5ABB5E];
+}
+
+.btnIcon_update {
+  @apply text-[#52A5FC];
+}
+
+.btnIcon_delete {
+  @apply text-[#F19797];
+}
+
+.icons {
+  @apply flex items-center gap-x-[10px];
+}

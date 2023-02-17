@@ -1,0 +1,15 @@
+.fieldset {
+  @apply grid max-w-[660px] grid-cols-[206px_1fr] items-center gap-[30px] text-[14px] font-semibold leading-[17px] text-[#0A091D];
+}
+
+.link {
+  @apply inline-block rounded-[44px] bg-[#0A091D] px-[30px] pt-[16px] pb-[14px] text-[14px] leading-[19px] text-white;
+}
+
+.btns {
+  @apply col-start-2 col-end-3 flex items-center gap-x-[10px];
+}
+
+.error {
+  @apply mt-[2px] text-[#F19797];
+}

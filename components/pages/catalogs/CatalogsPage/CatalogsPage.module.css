@@ -1,0 +1,39 @@
+.wrapper {
+  @apply pb-[257px];
+}
+
+.title {
+  @apply relative mb-[45px] pl-[17px] text-[18px] font-semibold uppercase leading-[22px] before:absolute before:top-2/4 before:left-0 before:h-full before:w-[3.6px] before:-translate-y-2/4 before:bg-[#52A5FC] before:content-[''];
+}
+
+.btnCreateCatalog {
+  @apply grid w-fit grid-cols-[1fr_15px] items-center gap-x-[10px] rounded-[44px] bg-[#52A5FC] px-[30px] pt-[16px] pb-[14px] text-[14px] leading-[17px] text-white transition-colors duration-300 ease-in-out hover:bg-[#1a8bff];
+}
+
+.btnCreateCatalogIcon {
+  @apply h-[15px] w-auto;
+}
+
+.catalogsList {
+  @apply mb-[35px] grid grid-cols-3 gap-[13px];
+}
+
+.catalogsItem {
+  @apply relative flex h-full items-center rounded-[10px] bg-white py-[36px] pr-[83px] pl-[36px] text-[18px] leading-[22px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)] transition-colors duration-300 ease-in-out hover:bg-[#52A5FC] hover:text-white;
+}
+
+.catalogsLink {
+  @apply absolute top-0 left-0 z-[5] h-full w-full text-[0px];
+}
+
+.catalogsBtnEdit {
+  @apply absolute top-2/4 right-[36px] z-10 flex -translate-y-2/4 items-center justify-center rounded-full bg-white p-[10px] text-[#52A5FC] transition-colors duration-300 ease-in-out;
+}
+
+.catalogsItem:hover > .catalogsBtnEdit {
+  @apply bg-[#6EB3FC] text-white;
+}
+
+.catalogsBtnEditIcon {
+  @apply h-[18px] w-auto;
+}

@@ -1,0 +1,15 @@
+.wrapper {
+  @apply mb-[90px];
+}
+
+.body {
+  @apply relative overflow-hidden rounded-[10px] py-[143px] px-[60px] drop-shadow-[0px_8px_50px_rgba(210,232,254,0.4)] before:absolute before:top-0 before:left-0 before:-z-[1] before:h-full before:w-full before:bg-hero before:bg-cover before:bg-center before:bg-no-repeat before:content-[''];
+}
+
+.title {
+  @apply mb-[10px] max-w-[604px] text-[36px] font-semibold uppercase leading-[44px];
+}
+
+.desc {
+  @apply mb-[50px] max-w-[595px] text-[16px] leading-[20px];
+}

@@ -1,0 +1,15 @@
+.container {
+  @apply mx-auto px-[30px];
+}
+
+.container_sm {
+  @apply max-w-[482px];
+}
+
+.container_lg {
+  @apply max-w-[1260px];
+}
+
+.container_xl {
+  @apply max-w-[1720px];
+}

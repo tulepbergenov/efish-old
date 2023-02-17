@@ -1,0 +1,19 @@
+.logo {
+  @apply grid grid-cols-[56px_1fr] gap-x-[10px] uppercase text-[#0A091D];
+}
+
+.logo_gray {
+  @apply text-[#BABABA];
+}
+
+.icon {
+  @apply row-span-2 h-[56px] w-[56px];
+}
+
+.title {
+  @apply max-w-[245px] self-end text-[14px] font-bold leading-[17px];
+}
+
+.subtitle {
+  @apply max-w-[300px] text-[8px] uppercase leading-[10px];
+}

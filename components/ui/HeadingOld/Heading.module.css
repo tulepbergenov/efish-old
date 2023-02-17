@@ -1,0 +1,23 @@
+.heading {
+  @apply text-[#0A091D];
+}
+
+.heading_lg {
+  @apply text-[36px] font-semibold leading-[44px];
+}
+
+.heading_md {
+  @apply text-[24px] font-semibold leading-[29px];
+}
+
+.heading_sm {
+  @apply text-[18px] font-semibold leading-[22px];
+}
+
+.heading_uppercase {
+  @apply uppercase;
+}
+
+.heading_center {
+  @apply text-center;
+}

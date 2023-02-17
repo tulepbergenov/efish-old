@@ -1,0 +1,63 @@
+.wrapper {
+  @apply pb-[169px];
+}
+
+.titleWrapper {
+  @apply mb-[45px] grid grid-cols-[21px_1fr] items-center gap-x-[19px];
+}
+
+.titleLink {
+  @apply inline-block h-[21px] w-[21px];
+}
+
+.titleLinkIcon {
+  @apply h-full w-auto text-[#52A5FC];
+}
+
+.titleLabel {
+  @apply relative pl-[17px] text-[18px] font-semibold uppercase leading-[22px] before:absolute before:top-2/4 before:left-0 before:h-full before:w-[3.6px] before:-translate-y-2/4 before:bg-[#52A5FC] before:content-[''];
+}
+
+.form {
+  @apply grid max-w-[657px] grid-cols-[1fr_422px] items-center gap-[30px];
+}
+
+.label {
+  @apply text-[14px] font-semibold leading-[17px];
+}
+
+.input {
+  @apply inline-block w-full rounded-[5px] border border-[#D3E7FB] bg-white px-[20px] pt-[13px] pb-[11px] text-[14px] leading-[17px] text-[#0A091D] placeholder:text-[#0A091D];
+}
+
+.inputs {
+  @apply col-span-2 grid grid-cols-[1fr_422px] gap-[30px];
+}
+
+.inputsInner {
+  @apply flex flex-col gap-y-[30px];
+}
+
+.btnCreate {
+  @apply col-start-2 col-end-3 mt-[5px] inline-block w-fit rounded-[44px] bg-[#5ABB5E] px-[30px] pt-[16px] pb-[14px] text-[14px] leading-[17px] text-white;
+}
+
+.examplesWrapper {
+  @apply relative w-full;
+}
+
+.examplesBtnCreate {
+  @apply absolute -right-[39px] top-2/4 -translate-y-2/4 text-[#52A5FC];
+}
+
+.exampleBtnCreateTooltip {
+  @apply pointer-events-none invisible absolute top-2/4 translate-x-[35px] -translate-y-2/4 whitespace-nowrap rounded-[10px] bg-[#0A091D] px-[15px] pt-[6px] pb-[4px] text-[12px] leading-[16px] text-white opacity-0 transition-all duration-300 ease-in-out;
+}
+
+.examplesBtnCreate:hover > .exampleBtnCreateTooltip {
+  @apply visible translate-x-[29px] opacity-100;
+}
+
+.exampleBtnCreateIcon {
+  @apply h-[24px] w-full;
+}

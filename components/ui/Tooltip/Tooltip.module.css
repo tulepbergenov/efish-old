@@ -1,0 +1,11 @@
+.tooltip {
+  @apply relative;
+}
+
+.label {
+  @apply pointer-events-none invisible absolute -top-[30px] left-2/4 z-10 -translate-x-2/4 rounded-[10px] bg-[#0A091D] py-[5px] px-[15px] text-[12px] leading-[15px] text-white opacity-0 transition-all duration-300 ease-in-out;
+}
+
+.tooltip:hover .label {
+  @apply pointer-events-auto visible opacity-100;
+}

@@ -1,0 +1,31 @@
+.wrapper {
+  @apply flex items-center;
+}
+
+.link {
+  @apply mr-[19px];
+}
+
+.icon {
+  @apply h-auto w-[20px] text-[#52A5FC];
+}
+
+.heading {
+  @apply font-montserrat text-[#0A091D];
+}
+
+.heading_line {
+  @apply relative pl-[16px] before:absolute before:top-0 before:left-0 before:h-full before:w-[4px] before:bg-[#52A5FC] before:content-[''];
+}
+
+.heading_uppercase {
+  @apply uppercase;
+}
+
+.heading_sm {
+  @apply text-[18px] font-semibold leading-[24px];
+}
+
+.heading_md {
+  @apply text-[24px] font-semibold leading-[32px];
+}
