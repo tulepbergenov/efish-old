@@ -33,5 +33,5 @@
 }
 
 .content {
-  @apply rounded-[10px] bg-white px-[45px] pt-[45px] pb-[58px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)];
+  @apply min-h-[542px] rounded-[10px] bg-white px-[45px] pt-[45px] pb-[58px] shadow-[0px_8px_50px_rgba(210,232,254,0.4)];
 }

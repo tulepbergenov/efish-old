@@ -141,7 +141,7 @@ const ReferenceEditPage: NextPage = (props: any) => {
       {reference && allRoles && modules && isLoading === true ? (
         <>
           <div className="mb-[45px] grid grid-cols-[23px_1fr] items-center gap-x-[19px]">
-            <Link href="/admin/references">
+            <Link href="/account/references">
               <IoIosArrowBack className="h-auto w-full text-[#52A5FC]" />
             </Link>
             <h1 className="relative flex flex-col gap-y-[3px] pl-[17px] font-semibold uppercase before:absolute before:top-2/4 before:left-0 before:h-full before:w-[3.6px] before:-translate-y-2/4 before:bg-[#52A5FC] before:content-['']">

@@ -292,7 +292,7 @@ const ReferencesPage = (props: any) => {
                               </Tooltip>
                               <Tooltip label="Посмотреть">
                                 <Link
-                                  href={`/admin/references/${reference.id}`}
+                                  href={`/account/references/${reference.id}`}
                                   className="inline-block"
                                 >
                                   <AiOutlineEye className="h-[22px] w-[21px] text-[#5ABB5E]" />
@@ -300,7 +300,7 @@ const ReferencesPage = (props: any) => {
                               </Tooltip>
                               <Tooltip label="Редактировать">
                                 <Link
-                                  href={`/admin/references/${reference.id}/edit`}
+                                  href={`/account/references/${reference.id}/edit`}
                                   className="inline-block"
                                 >
                                   <FiEdit3 className="h-[22px] w-[18px] text-[#52A5FC]" />

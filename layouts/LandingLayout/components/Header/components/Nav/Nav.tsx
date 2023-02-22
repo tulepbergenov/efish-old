@@ -29,7 +29,6 @@ export const Nav = ({ links }: NavProps) => {
           </li>
         ))}
       </ul>
-      <LangSwitcher appirience="select" />
     </nav>
   );
 };
