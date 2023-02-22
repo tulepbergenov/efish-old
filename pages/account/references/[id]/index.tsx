@@ -27,13 +27,17 @@ const ReferencePage: NextPage = (props: any) => {
           }, 2400);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
 
     ReferencesService.getModules()
       .then((res) => {
         setModules(res.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (

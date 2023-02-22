@@ -1,0 +1,151 @@
+.title {
+  @apply mb-[45px];
+}
+
+.form {
+  @apply max-w-[657px];
+}
+
+.fieldset {
+  @apply grid grid-cols-[1fr_422px] items-center gap-[30px];
+}
+
+.label {
+  @apply text-[14px] font-semibold leading-[19px];
+}
+
+.inputWrapper {
+  @apply relative w-full;
+}
+
+.input {
+  @apply inline-block min-h-[42px] w-full rounded-[5px] border border-[#D3E7FB] px-[20px] text-[14px] leading-[19px] text-[#0A091D] placeholder:text-[#0A091D];
+}
+
+.label_alignTop {
+  @apply mt-[13px] self-start;
+}
+
+.columns {
+  @apply flex w-full flex-col gap-y-[30px];
+}
+
+.modules {
+  @apply flex w-full flex-col gap-y-[15px] rounded-[5px] border border-[#D3E7FB] bg-white py-[23px] px-[20px];
+}
+
+.module {
+  @apply grid grid-cols-[1fr_17px] gap-y-[15px];
+}
+
+.moduleName {
+  @apply text-[14px] leading-[19px] transition-colors duration-300 ease-in-out;
+}
+
+.moduleName_active {
+  @apply text-[#52A5FC];
+}
+
+.moduleToggleBtn {
+  @apply flex h-[17px] w-full items-center justify-center rounded-[6px] border border-[#0A091D] transition-colors duration-300 ease-in-out hover:border-[#52A5FC];
+}
+
+.moduleToggleBtn > svg {
+  @apply h-auto w-[14px] scale-0 text-[#52A5FC] transition-all duration-300 ease-in-out;
+}
+
+.moduleToggleBtn_active {
+  @apply border-[#52A5FC] hover:border-[#F19797];
+}
+
+.moduleToggleBtn_active > svg {
+  @apply scale-100;
+}
+
+.moduleToggleBtn_active:hover > svg {
+  @apply text-[#F19797];
+}
+
+.btnSubmit {
+  @apply col-start-2 col-end-3 mt-[5px] inline-block w-fit rounded-[44px] bg-[#5ABB5E] py-[13px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#52A5FC];
+}
+
+.btnDeleteWrapper {
+  @apply absolute top-2/4 -right-[37px] -translate-y-2/4;
+}
+
+.btnDelete {
+  @apply flex items-center justify-center;
+}
+
+.btnDeleteTooltip {
+  @apply pointer-events-none invisible absolute top-2/4 left-[42px] inline-block -translate-y-2/4 whitespace-nowrap rounded-[10px] bg-[#0A091D] py-[5px] px-[15px] text-[12px] leading-[16px] text-white opacity-0 transition-all duration-300 ease-in-out;
+}
+
+.btnDeleteWrapper:hover .btnDeleteTooltip {
+  @apply pointer-events-auto visible left-[37px] opacity-100;
+}
+
+.btnDeleteIcon {
+  @apply h-[22px] w-[22px] rotate-45 text-[#F19797] transition-colors duration-300 ease-in-out;
+}
+
+.btnDelete:hover .btnDeleteIcon {
+  @apply text-[#5ABB5E];
+}
+
+.btnAddWrapper {
+  @apply absolute top-2/4 -right-[37px] -translate-y-2/4;
+}
+
+.btnAdd {
+  @apply flex items-center justify-center;
+}
+
+.btnAddTooltip {
+  @apply pointer-events-none invisible absolute top-2/4 left-[42px] inline-block -translate-y-2/4 whitespace-nowrap rounded-[10px] bg-[#0A091D] py-[5px] px-[15px] text-[12px] leading-[16px] text-white opacity-0 transition-all duration-300 ease-in-out;
+}
+
+.btnAddWrapper:hover .btnAddTooltip {
+  @apply pointer-events-auto visible left-[37px] opacity-100;
+}
+
+.btnAddIcon {
+  @apply h-[22px] w-[22px] text-[#52A5FC] transition-colors duration-300 ease-in-out;
+}
+
+.btnAdd:hover .btnAddIcon {
+  @apply text-[#5ABB5E];
+}
+
+.btnAddRole {
+  @apply grid w-fit grid-cols-[1fr_22px] items-center gap-x-[10px] text-[14px] font-semibold leading-[19px];
+}
+
+.btnAddRoleIcon {
+  @apply h-auto w-full text-[#52A5FC] transition-colors duration-300 ease-in-out;
+}
+
+.btnAddRole:hover .btnAddRoleIcon {
+  @apply text-[#5ABB5E];
+}
+
+.roles {
+  @apply col-start-2 col-end-3 flex flex-wrap gap-y-[7px] gap-x-[10px];
+}
+
+.role {
+  @apply grid w-fit grid-cols-[1fr_12px] items-center gap-x-[10px] rounded-[44px] bg-[#52A5FC] py-[5px] px-[15px] text-[12px] leading-[16px] text-white;
+}
+
+.roleBtnDelete {
+  @apply h-auto w-full rotate-45;
+}
+
+.modalBody {
+  @apply flex max-w-[538px] flex-wrap items-center gap-y-[7px] gap-x-[15px] py-[20px] px-[20px];
+}
+
+.modalRole {
+  @apply inline-block rounded-[110px] bg-[#52A5FC] py-[5px] px-[15px] text-white;
+}

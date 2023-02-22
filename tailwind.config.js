@@ -15,6 +15,7 @@ module.exports = {
       },
       backgroundImage: {
         hero: "url('/img/hero.jpg')",
+        wave: "url('/img/wave.png')",
       },
     },
   },

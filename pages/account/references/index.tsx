@@ -1,7 +1,7 @@
 import { withAuth } from "@/hocs/withAuth";
 import { AdminLayout } from "@/layouts/AdminLayout/AdminLayout";
 import type { NextPage } from "next";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { FiSearch, FiEdit3 } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { Listbox, Transition } from "@headlessui/react";
@@ -133,9 +133,13 @@ const ReferencesPage = (props: any) => {
   const firstItem = referCrop?.[0]?.id;
   const lastItem = referCrop?.[referCrop.length - 1]?.id;
 
+  const listRef = useRef<HTMLUListElement | any>(null);
+
   useEffect(() => {
     setCurrentPage(1);
-    window.scrollTo(0, document.body.scrollHeight);
+    if (listRef.current) {
+      window.scrollTo(0, listRef.current?.lastElementChild?.offsetTop);
+    }
   }, [pageSize]);
 
   useEffect(() => {
@@ -238,7 +242,7 @@ const ReferencesPage = (props: any) => {
                 </Listbox>
               </div>
               <Link
-                href="/admin/references/create"
+                href="/account/references/create"
                 className="grid grid-cols-[1fr_15px] items-center gap-x-[10px] rounded-[44px] bg-[#52A5FC] px-[30px] pt-[16px] pb-[14px] text-[14px] leading-[17px] text-white transition-colors duration-300 ease-in-out hover:bg-[#5ABB5E]"
               >
                 <span>Создать</span>
@@ -268,7 +272,7 @@ const ReferencesPage = (props: any) => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="text-[14px] leading-[17px]">
+                    <tbody ref={listRef} className="text-[14px] leading-[17px]">
                       {referCrop.map((reference) => (
                         <tr key={reference.id} className="group">
                           <td className="rounded-[10px_0_0_10px] px-[20px] pt-[14px] pb-[12px] group-even:bg-[#FBFBFB]">
@@ -286,7 +290,10 @@ const ReferencesPage = (props: any) => {
                           <td className="rounded-[0_10px_10px_0] px-[20px] pt-[14px] pb-[12px] group-even:bg-[#FBFBFB]">
                             <section className="flex items-center justify-end gap-x-[9px]">
                               <Tooltip label="Справочник">
-                                <Link href="#" className="inline-block">
+                                <Link
+                                  href={`/account/references/${reference.id}/list`}
+                                  className="inline-block"
+                                >
                                   <DirectoryIcon className="h-[22px] w-[18px] text-[#52A5FC]" />
                                 </Link>
                               </Tooltip>

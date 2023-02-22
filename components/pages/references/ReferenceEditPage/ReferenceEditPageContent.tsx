@@ -1,4 +1,4 @@
-import styles from "./ReferenceCreatePage.module.css";
+import styles from "./ReferenceEditPageContent.module.css";
 import classNames from "classnames";
 import { TitleBack } from "@/components/ui/TitleBack/TitleBack";
 import { referenceCreateSchema } from "../ReferenceCreatePage.schema";
@@ -14,6 +14,7 @@ import { RoleService } from "@/api/services/roles";
 import { ReferencesService } from "@/api/services/references";
 import { Modal } from "@/components/ui/Modal/Modal";
 import { PreLoader } from "@/components/ui/PreLoader/PreLoader";
+import { IReference } from "@/interfaces/references.interface";
 
 interface IData {
   id?: string;
@@ -29,16 +30,23 @@ interface IFormData {
 
 const schema = yup.object().shape(referenceCreateSchema);
 
-export const ReferenceCreatePageContent = () => {
+export const ReferenceEditPageContent = (props: any) => {
   const [allRoles, setAllRoles] = useState<IRole[]>([]);
   const [allModules, setAllModules] = useState<IModule[]>([]);
   const [columnValue, setColumnValue] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [reference, setReference] = useState<IReference>();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    ReferencesService.getReference(props.id)
+      .then((res) => {
+        setReference(res.data);
+      })
+      .catch((err) => console.error(err));
+
     RoleService.getRoles()
       .then((res) => {
         setAllRoles(res.data);
@@ -59,6 +67,7 @@ export const ReferenceCreatePageContent = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm<IFormData>({
     resolver: yupResolver(schema),
@@ -131,6 +140,36 @@ export const ReferenceCreatePageContent = () => {
     }
   }, [columnValue]);
 
+  useEffect(() => {
+    if (reference) {
+      setValue("name", reference.name);
+
+      const mRoles = reference.roles.map((role) => {
+        return {
+          value: role.id,
+        };
+      });
+
+      setValue("roles", mRoles as any);
+
+      const mColumns = reference.columns.map((column) => {
+        return {
+          value: column.name,
+        };
+      });
+
+      setValue("columns", mColumns as any);
+
+      const mModules = reference.modules.map((module) => {
+        return {
+          value: module,
+        };
+      });
+
+      setValue("modules", mModules);
+    }
+  }, [reference]);
+
   return (
     <>
       {isLoading ? (
@@ -138,7 +177,8 @@ export const ReferenceCreatePageContent = () => {
           <TitleBack
             className={styles.title}
             href="/account/references"
-            name="Создание справочника"
+            name="Редактирование справочника"
+            subName={reference?.name}
           />
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <fieldset className={styles.fieldset}>

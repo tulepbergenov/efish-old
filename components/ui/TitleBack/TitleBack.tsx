@@ -6,10 +6,12 @@ export const TitleBack = ({
   href,
   name,
   className,
+  subName,
 }: {
   className?: string;
   href: string;
   name: string;
+  subName?: string;
 }) => {
   return (
     <div
@@ -22,7 +24,15 @@ export const TitleBack = ({
         <IoIosArrowBack className="h-auto w-full text-[#52A5FC]" />
       </Link>
       <h1 className="relative flex flex-col gap-y-[3px] pl-[17px] text-[18px] font-semibold uppercase leading-[22px] before:absolute before:top-2/4 before:left-0 before:h-full before:w-[3.6px] before:-translate-y-2/4 before:bg-[#52A5FC] before:content-['']">
-        {name}
+        {!subName && <>{name}</>}
+        {subName && (
+          <>
+            <span>{name}</span>
+            <span className="text-[14px] leading-[17px] text-[#52A5FC]">
+              {subName}
+            </span>
+          </>
+        )}
       </h1>
     </div>
   );

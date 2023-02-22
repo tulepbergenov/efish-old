@@ -26,7 +26,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
           </li>
           <li className={styles.item}>
             <Link
-              href="/admin/references"
+              href="/account/references"
               className={classNames(styles.link, {
                 [styles.link_active]: router.pathname !== "/admin",
               })}
