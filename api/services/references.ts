@@ -46,10 +46,88 @@ const getEntry = (
   return res;
 };
 
+const deleteEntry = (
+  catalogId: any,
+  entryId: any
+): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${catalogId}/entry/${entryId}/delete`);
+
+  return res;
+};
+
+const deactivateReference = (id: any): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${id}/deactivate`);
+
+  return res;
+};
+
+const activateReference = (id: any): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${id}/activate`);
+
+  return res;
+};
+
+const createReference = (
+  data: ICatalogData
+): Promise<AxiosResponse<any, any>> => {
+  const res = api.post("/catalog/create", data);
+
+  return res;
+};
+
+const editReference = (
+  data: ICatalogData,
+  id: any
+): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${id}`, data);
+
+  return res;
+};
+
+const createEntry = (
+  data: any,
+  catalogId: any
+): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${catalogId}/entry/create`, data);
+
+  return res;
+};
+
+const editEntry = (
+  data: any,
+  catalogId: any,
+  entryId: any
+): Promise<AxiosResponse<any, any>> => {
+  const res = api.post(`/catalog/${catalogId}/entry/${entryId}`, data);
+
+  return res;
+};
+
 export const ReferencesService = {
   getReferences,
+  createEntry,
+  editEntry,
   getEntryList,
+  editReference,
   getReference,
   getModules,
   getEntry,
+  deactivateReference,
+  activateReference,
+  deleteEntry,
+  createReference,
 };
+
+interface ICatalogData {
+  name: string;
+  modules: string[];
+  columns: string[];
+  roles: number[];
+}
+
+interface IEntryData {
+  name: string;
+  modules: string[];
+  columns: string[];
+  roles: number[];
+}

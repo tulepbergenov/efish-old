@@ -14,6 +14,9 @@ import { RoleService } from "@/api/services/roles";
 import { ReferencesService } from "@/api/services/references";
 import { Modal } from "@/components/ui/Modal/Modal";
 import { PreLoader } from "@/components/ui/PreLoader/PreLoader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 interface IData {
   id?: string;
@@ -96,10 +99,6 @@ export const ReferenceCreatePageContent = () => {
     name: "roles",
   });
 
-  const onSubmit = (data: IFormData) => {
-    console.log(data);
-  };
-
   useEffect(() => {
     console.log("React Hook Form Erros", errors);
   }, [errors]);
@@ -123,6 +122,29 @@ export const ReferenceCreatePageContent = () => {
 
       setColumnValue("");
     }
+  };
+
+  const router = useRouter();
+
+  const onSubmit = (data: IFormData) => {
+    console.log(data);
+
+    const submitData: any = { ...data };
+    submitData.columns = data.columns.map((column) => column.value);
+    submitData.roles = data.roles.map((role) => role.value);
+    submitData.modules = data.modules.map((module) => module.value);
+
+    ReferencesService.createReference(submitData)
+      .then((res) => {
+        toast.success(res.data.message);
+        setTimeout(() => {
+          router.push("/account/references");
+        }, 1500);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.error_message);
+        console.error(err);
+      });
   };
 
   useEffect(() => {
@@ -315,6 +337,18 @@ export const ReferenceCreatePageContent = () => {
               </button>
             </fieldset>
           </form>
+          <ToastContainer
+            position="top-right"
+            autoClose={1500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
           <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
             <div className={styles.modalBody}>
               {allRoles.length > 0 &&

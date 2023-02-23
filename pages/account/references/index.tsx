@@ -26,7 +26,7 @@ import { useRouter } from "next/router";
 const filterOptions = [
   { id: 1, name: "Все", status: "all" },
   { id: 2, name: "Активные", status: "active" },
-  { id: 3, name: "Заблокированные", status: "blocked" },
+  { id: 3, name: "Заблокированные", status: "deleted" },
   { id: 3, name: "Новые", status: "new" },
 ];
 

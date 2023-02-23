@@ -91,6 +91,10 @@ const List = (props: any) => {
     }
   }, [deb, entryData]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchValue]);
+
   const dataCrop = paginate(data, currentPage, pageSize);
 
   const pageCount = Math.ceil(data.length / pageSize);
@@ -138,7 +142,7 @@ const List = (props: any) => {
     <AdminLayout>
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={1500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -272,7 +276,14 @@ const List = (props: any) => {
               )}
             </div>
             <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-              <ModalEntryBlock setIsOpen={setIsOpen} id={selectBlockId} />
+              <ModalEntryBlock
+                setIsOpen={setIsOpen}
+                columnId={props.id}
+                entryId={selectBlockId}
+                setData={setData}
+                setEntryData={setEntryData}
+                toast={toast}
+              />
             </Modal>
             {data.length > 0 && (
               <div className="flex items-center gap-x-[30px] text-[14px] leading-none">

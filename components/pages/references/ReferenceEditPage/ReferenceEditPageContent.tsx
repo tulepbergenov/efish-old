@@ -15,6 +15,9 @@ import { ReferencesService } from "@/api/services/references";
 import { Modal } from "@/components/ui/Modal/Modal";
 import { PreLoader } from "@/components/ui/PreLoader/PreLoader";
 import { IReference } from "@/interfaces/references.interface";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 interface IData {
   id?: string;
@@ -105,8 +108,28 @@ export const ReferenceEditPageContent = (props: any) => {
     name: "roles",
   });
 
+  console.log("COlumns", columnFields);
+
   const onSubmit = (data: IFormData) => {
-    console.log(data);
+    const submitData: any = { ...data };
+    submitData.columns = submitData.columns.map((column) => column.value);
+    submitData.roles = submitData.roles.map((role) => role.value);
+    submitData.modules = submitData.modules.map((module) => module.value);
+    console.log(submitData);
+
+    if (reference) {
+      ReferencesService.editReference(submitData, reference.id)
+        .then((res) => {
+          toast.success(res.data.message);
+          setTimeout(() => {
+            router.push("/account/references");
+          }, 2000);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.error_message);
+          console.error(err);
+        });
+    }
   };
 
   useEffect(() => {
@@ -170,6 +193,56 @@ export const ReferenceEditPageContent = (props: any) => {
     }
   }, [reference]);
 
+  const router = useRouter();
+
+  console.log(columnFields);
+
+  const hideItem = (value: any) => {
+    if (reference) {
+      const index = reference.columns.findIndex(
+        (column) => column.name === value
+      );
+
+      return reference.columns[index]?.is_deleted === 1 ? true : false;
+    }
+  };
+
+  const handleActivate = (id: any) => {
+    if (id) {
+      ReferencesService.activateReference(id)
+        .then((res) => {
+          console.log(res.data);
+          toast.success(res.data.message);
+          setTimeout(() => {
+            ReferencesService.getReference(props.id)
+              .then((res) => {
+                setReference(res.data);
+              })
+              .catch((err) => console.error(err));
+          }, 1500);
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
+  const handleDeactivate = (id: any) => {
+    if (id) {
+      ReferencesService.deactivateReference(id)
+        .then((res) => {
+          console.log(res.data);
+          toast.success(res.data.message);
+          setTimeout(() => {
+            ReferencesService.getReference(props.id)
+              .then((res) => {
+                setReference(res.data);
+              })
+              .catch((err) => console.error(err));
+          }, 1500);
+        })
+        .catch((err) => console.error(err));
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -200,7 +273,12 @@ export const ReferenceEditPageContent = (props: any) => {
               </label>
               <fieldset className={styles.columns}>
                 {columnFields.map((column, index) => (
-                  <div key={column.id} className="relative">
+                  <div
+                    key={column.id}
+                    className={classNames("relative", {
+                      ["hidden"]: hideItem(column.value) === true,
+                    })}
+                  >
                     <div className={styles.inputWrapper}>
                       <input
                         type="text"
@@ -350,9 +428,28 @@ export const ReferenceEditPageContent = (props: any) => {
                   </button>
                 ))}
               </section>
-              <button type="submit" className={styles.btnSubmit}>
-                Создать
-              </button>
+              <div className="col-start-2 col-end-3 flex flex-wrap items-center gap-[10px]">
+                <button type="submit" className={styles.btnSubmit}>
+                  Сохранить
+                </button>
+                {reference?.status === "active" ? (
+                  <button
+                    type="button"
+                    className="inline-block w-fit rounded-[44px] bg-[#F19797] py-[13px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#52A5FC]"
+                    onClick={() => handleDeactivate(reference.id)}
+                  >
+                    Заблокировать справочник
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="inline-block w-fit rounded-[44px] bg-[#5ABB5E] py-[13px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#52A5FC]"
+                    onClick={() => handleActivate(reference!.id)}
+                  >
+                    Активировать справочник
+                  </button>
+                )}
+              </div>
             </fieldset>
           </form>
           <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -384,6 +481,18 @@ export const ReferenceEditPageContent = (props: any) => {
                 ))}
             </div>
           </Modal>
+          <ToastContainer
+            position="top-right"
+            autoClose={1500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </>
       ) : (
         <div className="flex w-full justify-center">

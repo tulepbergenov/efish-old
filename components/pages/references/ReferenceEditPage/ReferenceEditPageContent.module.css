@@ -67,7 +67,7 @@
 }
 
 .btnSubmit {
-  @apply col-start-2 col-end-3 mt-[5px] inline-block w-fit rounded-[44px] bg-[#5ABB5E] py-[13px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#52A5FC];
+  @apply inline-block w-fit rounded-[44px] bg-[#5ABB5E] py-[13px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#52A5FC];
 }
 
 .btnDeleteWrapper {

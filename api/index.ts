@@ -6,7 +6,6 @@ const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 const api = axios.create({
   baseURL: API_KEY,
   headers: {
-    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
   },
 });
