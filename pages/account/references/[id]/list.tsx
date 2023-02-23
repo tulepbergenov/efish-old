@@ -24,6 +24,7 @@ import { useRouter } from "next/router";
 import useDebounce from "@/hooks/use-debounce";
 import { Tooltip } from "@/components/ui";
 import { Modal } from "@/components/ui/Modal/Modal";
+import { ModalEntryBlock } from "@/components/ui/ModalEntryBlock/ModalEntryBlock";
 
 const pageSizes = [5, 10, 15];
 
@@ -35,6 +36,7 @@ const List = (props: any) => {
   const [entryData, setEntryData] = useState<IEntryList[]>([]);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectBlockId, setSelectBlockId] = useState<number | any>();
 
   const [pageSize, setPageSize] = useState(pageSizes[0]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -189,7 +191,7 @@ const List = (props: any) => {
                 </button>
               </div>
               <Link
-                href="#"
+                href={`/account/references/${props.id}/create`}
                 className="grid w-fit grid-cols-[1fr_15px] items-center gap-x-[10px] rounded-[44px] bg-[#52A5FC] py-[14px] px-[30px] text-[14px] leading-[19px] text-white transition-colors duration-300 ease-in-out hover:bg-[#5ABB5E]"
               >
                 <span>Добавить</span>
@@ -251,7 +253,10 @@ const List = (props: any) => {
                             <Tooltip label="Удалить">
                               <button
                                 type="button"
-                                onClick={() => setIsOpen(true)}
+                                onClick={() => {
+                                  setIsOpen(true);
+                                  setSelectBlockId(entry.id);
+                                }}
                               >
                                 <AiOutlinePlusCircle className="h-[18px] w-auto rotate-45 text-[#F19797] transition-colors duration-300 ease-in-out hover:text-[#5ABB5E]" />
                               </button>
@@ -266,31 +271,8 @@ const List = (props: any) => {
                 <p className="text-center">Записи отсуствуют</p>
               )}
             </div>
-
             <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-              <div className="w-[538px]">
-                <div className="bg-[#F19797] py-[17px] text-white">
-                  <p className="text-center">
-                    Вы уверены что хотите удалить данные?
-                  </p>
-                </div>
-                <div className="flex items-center justify-center gap-x-[46px] pt-[37px] pb-[49px]">
-                  <button
-                    type="button"
-                    className="grid w-fit grid-cols-[20px_1fr] gap-x-[10px] font-medium text-[#F19797]"
-                  >
-                    <AiOutlinePlusCircle className="h-auto w-[20px] rotate-45" />
-                    <span>Заблокировать</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setIsOpen(false)}
-                    className="text-[#52A5FC]"
-                  >
-                    Отмена
-                  </button>
-                </div>
-              </div>
+              <ModalEntryBlock setIsOpen={setIsOpen} id={selectBlockId} />
             </Modal>
             {data.length > 0 && (
               <div className="flex items-center gap-x-[30px] text-[14px] leading-none">

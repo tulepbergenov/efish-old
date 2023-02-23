@@ -1,21 +1,20 @@
-import { ReferencesService } from "@/api/services/references";
 import { PreLoaderV2 } from "@/components/ui/PreLoaderV2/PreLoaderV2";
 import { TitleBack } from "@/components/ui/TitleBack/TitleBack";
-import { IEntryResponse } from "@/interfaces/entry-interface";
-import { useRouter } from "next/router";
+import { AdminLayout } from "@/layouts";
 import { Fragment, useEffect, useState } from "react";
-import { AdminLayout } from "../../../../../../layouts";
+import { ReferencesService } from "@/api/services/references";
+import { IReference } from "@/interfaces/references.interface";
 
-const EntryPageEdit = (props: any) => {
-  const router = useRouter();
-  const [entryData, setEntryData] = useState<IEntryResponse>();
+const EntryPageCreate = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [referenceData, setReferenceData] = useState<IReference>();
 
   useEffect(() => {
-    ReferencesService.getEntry(props.id, props.entryId)
+    ReferencesService.getReference(props.id)
       .then((res) => {
-        setEntryData(res.data);
+        setReferenceData(res.data);
         setIsLoading(true);
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -23,22 +22,21 @@ const EntryPageEdit = (props: any) => {
   return (
     <AdminLayout>
       <TitleBack
-        name="Редактирование справочника"
+        name="Создане справочника"
         href={`/account/references/${props.id}/list`}
       />
       {isLoading === true ? (
         <form>
           <fieldset className="grid max-w-[660px] grid-cols-[1fr_422px] items-center gap-[30px]">
-            {entryData &&
-              entryData.values.map((value) => {
+            {referenceData &&
+              referenceData.columns.map((column) => {
                 return (
-                  <Fragment key={value.id}>
+                  <Fragment key={column.id}>
                     <label className="text-[14px] font-semibold leading-[19px] text-[#0A091D]">
-                      {value.column.name}
+                      {column.name}
                     </label>
                     <input
                       type="text"
-                      defaultValue={value.value}
                       className="inline-block w-full rounded-[5px] border border-[#D3E7FB] px-[20px] py-[12px] text-[14px] leading-[19px] text-[#0A091D]"
                     />
                   </Fragment>
@@ -59,16 +57,14 @@ const EntryPageEdit = (props: any) => {
   );
 };
 
-export default EntryPageEdit;
+export default EntryPageCreate;
 
 export async function getServerSideProps({ query }: { query: any }) {
   const id = query.id;
-  const entryId = query.entryId;
 
   return {
     props: {
       id,
-      entryId,
     },
   };
 }

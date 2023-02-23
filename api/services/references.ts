@@ -1,3 +1,4 @@
+import { IEntryResponse } from "@/interfaces/entry-interface";
 import { IEntryListResponse } from "@/interfaces/entry-list.interface";
 import { IModulesResponse } from "@/interfaces/modules.interface";
 import { IReferenceResponse } from "@/interfaces/reference.interface";
@@ -36,9 +37,19 @@ const getEntryList = (
   return res;
 };
 
+const getEntry = (
+  catalogId: any,
+  entryId: any
+): Promise<AxiosResponse<IEntryResponse, any>> => {
+  const res = api.get(`/catalog/${catalogId}/entry/${entryId}`);
+
+  return res;
+};
+
 export const ReferencesService = {
   getReferences,
   getEntryList,
   getReference,
   getModules,
+  getEntry,
 };
